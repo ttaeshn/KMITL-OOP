@@ -1,0 +1,20 @@
+@startuml name
+
+skinparam Style strictuml
+
+activate UI
+UI -> Controller : add_Auction()
+activate Controller
+Controller -> Controller : get_list_Auction()
+activate Auction
+alt already open Auction
+    Controller -> Auction : get_Auction_info()
+    Auction -> Controller : Auction_info
+    Controller -> UI : Already open Auction
+else success open Auciton
+    Controller -> Auction : open_Auction()
+    Auction -> Controller : success
+    Controller -> UI : success
+end
+
+@enduml

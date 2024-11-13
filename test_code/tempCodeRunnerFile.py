@@ -1,0 +1,1 @@
+len(temp_list) == 2 and 
